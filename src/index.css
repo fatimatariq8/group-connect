@@ -1,0 +1,10 @@
+/* Add this in your global CSS file (e.g., index.css) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
