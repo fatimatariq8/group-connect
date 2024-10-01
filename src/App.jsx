@@ -1,38 +1,21 @@
 import React from 'react';
-import './App.css'; 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import WelcomePage from './pages/welcome';
+import Dashboard from './pages/home';
+// import AboutPage from './components/AboutPage';
+// import ContactPage from './components/ContactPage';
+// import './styles/GlobalStyles.css';
 
 function App() {
   return (
-    <div className="container">
-      <div className="puzzle">
-        <img
-          src="logo.png"
-          alt="Puzzle Icon"
-          className="puzzleIcon"
-        />
-        {/* <h1 className="title">
-          Group<span className="connect">Connect</span>
-        </h1> */}
-      
-      <p className="subtitle">
-        GroupConnect is a student-friendly app that helps Habib University
-        students find the perfect group partners for class projects based on
-        availability, skills, and preferences, ensuring smoother collaboration
-        and successful teamwork.
-      </p>
-      </div>
-      <div className='ready1'>
-      <h2 className="ready">Ready?</h2>
-      <button className="getStartedBtn">Get Started ➔</button>
-      </div>
-      <div className="universityLogo">
-        <img
-          src="uni_logo.png"
-          alt="Habib University Logo"
-          className="universityLogoImage"
-        />
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/home" element={<Dashboard />} />
+        {/* <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} /> */}
+      </Routes>
+    </Router>
   );
 }
 
