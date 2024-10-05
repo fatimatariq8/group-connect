@@ -12,7 +12,23 @@ color: white;
 padding: 20px;
 position: fixed;
 height: 100%;
+}
 
+.sidebar ul {
+  list-style-type: none;
+  width: 100%;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidebar ul li:hover {
+  background-color: #5E2E71;
 }
 
 .logo img {
@@ -24,6 +40,10 @@ justify-content: center;
 align-items: center;
 flex-grow: 1;
 
+}
+
+.logo img:hover {
+  cursor: pointer;
 }
 
 .nav-items {
@@ -77,7 +97,7 @@ cursor: pointer;
 
 }
 
-.text :hover{
+.text_title:hover{
     text-decoration: underline;
 }
 

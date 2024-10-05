@@ -16,10 +16,11 @@ const Login = () => {
     };
 
   return (
-    <div className="login-container">
+    <div className="login-container">   
         <div className="login-box">
         <h2>Login</h2>
-        <p>Sign in to continue</p>
+        
+        <p>Don't have an Account? <a href="/createaccount">Sign Up</a></p>
         <form onSubmit={handlelogin}>
             <div className="input-group">
             <label htmlFor="email">Email</label>

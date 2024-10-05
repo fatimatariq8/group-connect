@@ -1,0 +1,76 @@
+.help-page {
+    display: flex;
+    height: 100vh;
+  }
+  
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../pictures/createaccountbgpic.jpg'); /* Adjust path if needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: blur(12px); /* Adjust the blur intensity */
+    opacity: 0.65; /* Set transparency */
+    z-index: -1; /* Ensure the background is behind content */
+  }
+
+
+.help_side {
+width: 230px;
+background-color: #4B1D56;
+position: fixed; /* Fixing the sidebar in place */
+height: 100vh; /* Full height of the viewport */
+left: 0;
+top: 0;
+}
+
+
+.help-content {
+margin-left: 230px; /* Add left margin to avoid sidebar overlap */
+flex-grow: 1;
+padding: 40px;
+
+background-color: rgba(255, 255, 255, 0.5); /* Adding transparency to content */
+z-index: 1;
+}
+
+#text1 {
+color: #4B1D56;
+font-size: 2rem;
+margin-bottom: 20px;
+}
+
+#text2 {
+font-size: 1rem;
+margin-bottom: 20px;
+color: #333;
+line-height: 1.6;
+}
+
+ul {
+margin-bottom: 20px;
+padding-left: 20px;
+}
+
+ul li {
+margin-bottom: 10px;
+font-size: 1rem;
+color: #333;
+}
+
+a {
+color: #6200ee;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
