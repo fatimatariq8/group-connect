@@ -9,7 +9,7 @@ const Sidebar = () => {
         <img src="uni_logo.png" alt="Habib University" />
       </div>
       <ul className="nav-items">
-        <li><Link to="/account"><AccountCircle /> Profile</Link></li>
+        <li><Link to="/profile"><AccountCircle /> Profile</Link></li> {/* Link to Profile Page */}
         <li><Link to="/home"><Dashboard /> Dashboard</Link></li>
         <li><Link to="/help"><Help /> Help</Link></li>
         <li><Link to="/logout"><Logout /> Logout</Link></li>
