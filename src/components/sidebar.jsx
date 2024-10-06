@@ -15,7 +15,7 @@ const Sidebar = () => {
         <li><Link to="/profile"><AccountCircle /> Profile</Link></li> 
         <li><Link to="/home"><Dashboard /> Dashboard</Link></li>
         <li><Link to="/help"><Help /> Help</Link></li>
-        <li><Link to="/"><Logout /> Logout</Link></li>
+        <li><Link to="/login"><Logout /> Logout</Link></li>
       </ul>
     </div>
   );

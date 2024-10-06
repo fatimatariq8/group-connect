@@ -12,7 +12,7 @@ const Login = () => {
         // Perform any sign-up logic here
 
         // After successful sign-up, navigate to the dashboard
-        navigate('/createaccount');
+        navigate('/home');
     };
 
   return (
