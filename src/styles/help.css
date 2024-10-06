@@ -11,33 +11,33 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../pictures/createaccountbgpic.jpg'); /* Adjust path if needed */
+    background-image: url('../pictures/createaccountbgpic.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    filter: blur(12px); /* Adjust the blur intensity */
-    opacity: 0.65; /* Set transparency */
-    z-index: -1; /* Ensure the background is behind content */
+    filter: blur(12px); 
+    opacity: 0.65; 
+    z-index: -1; 
   }
 
 
 .help_side {
 width: 230px;
 background-color: #4B1D56;
-position: fixed; /* Fixing the sidebar in place */
-height: 100vh; /* Full height of the viewport */
+position: fixed; 
+height: 100vh; 
 left: 0;
 top: 0;
 }
 
 
 .help-content {
-margin-left: 230px; /* Add left margin to avoid sidebar overlap */
+margin-left: 230px; 
 flex-grow: 1;
 padding: 40px;
 
-background-color: rgba(255, 255, 255, 0.5); /* Adding transparency to content */
+background-color: rgba(255, 255, 255, 0.5); 
 z-index: 1;
 }
 

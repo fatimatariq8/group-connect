@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/login.css"; // Importing CSS for the login page
+import "../styles/login.css";
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -7,11 +7,8 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handlelogin = (e) => {
-        e.preventDefault(); // Prevent form submission if needed
+        e.preventDefault(); 
 
-        // Perform any sign-up logic here
-
-        // After successful sign-up, navigate to the dashboard
         navigate('/home');
     };
 

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function WelcomePage() {
   const navigate = useNavigate();
   const goToDashboard = () => {
-    navigate('/login');  // Navigate to /dashboard
+    navigate('/login');
   };
     return (
         <div className="container">

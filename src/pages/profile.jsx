@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/profile.css'; 
 import Sidebar from '../components/sidebar';
-import { useNavigate } from 'react-router-dom'; // Add navigation like in Login
+import { useNavigate } from 'react-router-dom'; 
 
 const Profile = () => {
   const [profile, setProfile] = useState({
@@ -13,7 +13,7 @@ const Profile = () => {
     gpa: '',
   });
 
-  const navigate = useNavigate(); // For navigation
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,8 +26,7 @@ const Profile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Profile Saved', profile);
-    // After successful form submission, you can navigate to another page
-    navigate('/dashboard'); // Example of navigating to dashboard after saving
+    navigate('/dashboard'); 
   };
 
   return (
@@ -43,7 +42,7 @@ const Profile = () => {
                 src="profile.png" 
                 alt="User Profile" 
               />
-              <button className="edit-image-button">Change Image</button>
+              <button type="button" className="edit-image-button">Change Image</button>
             </div>
             <div className="profile-actions">
               <button type="submit" className="save-button">Save</button>
@@ -99,7 +98,6 @@ const Profile = () => {
               <option value="2026">2026</option>
               <option value="2027">2027</option>
               <option value="2028">2028</option>
-              {/* Add more batch options */}
             </select>
             </div>
           </div>
@@ -115,7 +113,6 @@ const Profile = () => {
                 <option value="sdp">Social and Development Policy</option>
                 <option value="cnd">Communication and Design</option>
                 <option value="ch">Comparative Humanities</option>
-              {/* Add more options as per your need */}
               </select>
             </div>
 

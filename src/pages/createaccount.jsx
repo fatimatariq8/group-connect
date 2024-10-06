@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/createaccount.css"; // Importing the updated CSS for the account creation page
+import "../styles/createaccount.css"; 
 import { useNavigate } from 'react-router-dom';
 
 const CreateAccount = () => {
@@ -7,11 +7,7 @@ const CreateAccount = () => {
     const navigate = useNavigate();
 
     const handleSignUp = (e) => {
-        e.preventDefault(); // Prevent form submission if needed
-
-        // Perform any sign-up logic here
-
-        // After successful sign-up, navigate to the dashboard
+        e.preventDefault(); 
         navigate('/home');
     };
 
@@ -51,11 +47,10 @@ const CreateAccount = () => {
               <option value="sdp">Social and Development Policy</option>
               <option value="cnd">Communication and Design</option>
               <option value="ch">Comparative Humanities</option>
-              {/* Add more options as per your need */}
+
             </select>
           </div>
-
-          {/* Batch */}
+          
           <div className="input-group">
             <label htmlFor="batch">Batch</label>
             <select id="batch" required>
@@ -66,7 +61,7 @@ const CreateAccount = () => {
               <option value="2026">2026</option>
               <option value="2027">2027</option>
               <option value="2028">2028</option>
-              {/* Add more batch options */}
+
             </select>
           </div>
 
