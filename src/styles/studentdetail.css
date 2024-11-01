@@ -1,0 +1,33 @@
+.student-detail {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+  }
+  
+  .student-avatar {
+    margin-right: 10px;
+  }
+  
+  .avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .student-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .student-name {
+    font-weight: bold;
+    color: #6b478f;
+  }
+  
+  .student-section, .student-role {
+    font-size: 0.9em;
+    color: #555;
+  }
+  

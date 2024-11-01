@@ -1,0 +1,31 @@
+.course-page {
+    display: flex;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .course-content {
+    padding: 20px;
+  }
+  
+  .student-list {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+  }
+  
+  .student-list .student-detail {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  

@@ -6,6 +6,8 @@ import Login from './pages/login';
 import CreateAccount from './pages/createaccount';
 import Profile from './pages/profile'
 import Help from './pages/help'
+import CoursePage from './pages/coursepage'; // Import CoursePage here
+
 // import AboutPage from './components/AboutPage';
 // import ContactPage from './components/ContactPage';
 // import './styles/GlobalStyles.css';
@@ -20,6 +22,7 @@ function App() {
         <Route path="/createaccount" element={<CreateAccount />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/coursepage" element={<CoursePage />} />
         {/* <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} /> */}
       </Routes>
