@@ -1,15 +1,18 @@
 import React from 'react';
 import '../styles/help.css'; 
 import Sidebar from '../components/sidebar';
+import { useParams } from 'react-router-dom';
 
 const Help = () => {
+  const { id } = useParams(); // Retrieve the user ID from the URL
+
   return (
     <div className="help-page">
       <div className="help_side">
-        <Sidebar />
+        <Sidebar userId={id} /> {/* Pass user ID to Sidebar */}
       </div>
       <div className="help-content">
-        <h1 id='text1' >About Us</h1>
+        <h1 id='text1'>About Us</h1>
         <p id='text2'>
           Welcome to GroupConnect! We are a student-friendly platform designed to help
           Habib University students find the perfect group partners for class projects 
@@ -31,8 +34,6 @@ const Help = () => {
           <li>Phone: +92-333-1234567</li>
           <li>Address: Habib University, Karachi, Pakistan</li>
         </ul>
-
-        
       </div>
     </div>
   );

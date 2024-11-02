@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import Navbar from '../components/nav';
 import Sidebar from '../components/sidebar';
 import StudentDetail from '../components/studentdetail';
 import '../styles/coursepage.css';
 
 const CoursePage = () => {
-  const { courseId } = useParams(); // Retrieve courseId from URL
+  const { id } = useParams(); // Retrieve userId from URL
 
   // Sample student data
   const sampleStudents = [
@@ -25,15 +24,15 @@ const CoursePage = () => {
       setStudents(sampleStudents);
       setLoading(false);
     }, 1000); // Simulate loading delay
-  }, [courseId]);
+  }, []);
 
   return (
     <div className="course-page">
-      <Sidebar /> {/* Sidebar for navigation */}
+      <Sidebar userId={id} /> {/* Pass userId to Sidebar */}
       <div className="main-content">
-        {/* <Navbar /> Navbar at the top */}
         <div className="course-content">
-          <h2>{courseId ? `Course: ${courseId}` : 'Course Students'}</h2> {/* Dynamic course name */}
+          <h2>User Course Page</h2>
+          <p>{`User ID: ${id}`}</p> {/* Display User ID */}
           {loading ? (
             <p>Loading...</p> // Loading indicator
           ) : (
