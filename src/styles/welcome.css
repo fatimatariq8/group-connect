@@ -1,108 +1,169 @@
-
 .container {
-    /* background-color: #3E1846; */
-    color: white;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-
+  color: white;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around; /* Space out left and right sections */
+  align-items: center;
+  position: relative;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #3E1846; /* Purple background color */
+}
 
 body {
   position: relative;
   margin: 0;
   min-height: 100vh;
-  overflow: hidden;  
+  overflow: hidden;
 }
 
-
-body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('../pictures/createaccountbgpic.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  filter: blur(12px); /*Adjust the blur intensity as needed */
-  opacity: 0.65; /*Set transparency for the image itself */
-  z-index: -1; /*Ensure it stays behind all other content */
+.universityLogo {
+  position: fixed; /* Fix to the top */
+  top: 10px;
+  right: 20px;
+  z-index: 1;
 }
- 
-  .puzzle {
 
-    margin-left: -15%;
-    gap: 10px;
-    padding: 100px;
-    align-items: center;
-  }
-  
-  .puzzleIcon {
-    height: 300px;
-  }
-  
+.universityLogoImage {
+  max-height: 100px;
+  width: auto;
+}
+
+.puzzle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Increase space between logo and description */
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 600px;
+}
+
+.puzzleIcon {
+  height: 250px;
+  width: auto;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.connect {
+  color: #b3b3b3;
+}
+
+.subtitle {
+  font-size: 20px;
+  max-width: 600px;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 20px; /* Add extra space below the logo */
+}
+
+.ready1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Increase space between "Ready?" and "Get Started" button */
+}
+
+.ready {
+  font-size: 50px;
+  color: #ffffff;
+}
+
+.getStartedBtn {
+  margin-top: 10px;
+  padding: 15px 60px;
+  background-color: #8b4aa9;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.getStartedBtn:hover {
+  background-color: #b066c1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
   .title {
-    font-size: 50px;
-    font-weight: bold;
+    font-size: 40px;
   }
-  
-  .connect {
-    color: #b3b3b3;
-  }
-  
-  .subtitle {
-  
-    font-size: 18px;
-    width: 550px;
-    line-height: 1.5;
-  }
-  
+
   .ready {
-    font-size: 50px;
-    
+    font-size: 40px;
   }
-  
-  .ready1 {
-    margin-left: 10%;
-    align-items: center;
-    
+
+  .subtitle {
+    font-size: 16px;
+    width: 80%;
   }
-  
+
   .getStartedBtn {
-    margin-top: 20px;
-    padding: 15px 60px;
-    background-color: #6b3983;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
+    padding: 12px 50px;
+    font-size: 18px;
   }
-  
-  .getStartedBtn:hover {
-    background-color: #8b4aa9;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
   }
-  
-  .universityLogo {
-    position: absolute;
-    top: 0px;
-    right: 20px;
+
+  .puzzle {
+    padding: 20px;
+    align-items: center;
+    text-align: center;
   }
-  
+
+  .title, .ready {
+    font-size: 30px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    width: 90%;
+  }
+
+  .getStartedBtn {
+    padding: 10px 40px;
+    font-size: 16px;
+  }
+
   .universityLogoImage {
-    height: 100px;
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .puzzleIcon {
+    max-height: 150px;
+    width: 80%;
+  }
+
+  .title, .ready {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 12px;
     width: 100%;
   }
-  
+
+  .getStartedBtn {
+    padding: 8px 30px;
+    font-size: 14px;
+  }
+}
