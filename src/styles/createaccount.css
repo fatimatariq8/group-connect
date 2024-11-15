@@ -1,106 +1,115 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
 
-  .create-account-box {
-    position: relative; /* Makes sure it stands on top of the background */
-    z-index: 1;         /* Keeps it above the background */
-    background: #4d1e57; /* Slight background for contrast */
-    border-radius: 10px;
-    /* background-color: transparent;  */
-    padding: 40px;
-    width: 400px;
-    text-align: center;
-  }
-  
+.create-account-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #3e1846;
+}
 
-  
-  .create-account-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #3e1846; 
-  }
-/*   
-  .create-account-box {
-    background-color: transparent;
-    padding: 40px;
-    border-radius: 8px;
-    width: 400px;
-    text-align: center;
-  }
-   */
+.create-account-box {
+  position: relative;
+  z-index: 1;
+  background: #4d1e57;
+  border-radius: 10px;
+  padding: 40px;
+  width: 400px;
+  max-width: 90%; /* Ensures it doesn't exceed screen width on smaller screens */
+  text-align: center;
+}
 
 form .input-group label {
-    color: white;
+  color: white;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+p {
+  margin-bottom: 30px;
+  color: white;
+}
+
+p a {
+  color: rgb(230, 205, 205);
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: white;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6c2c81;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #5a226b;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .create-account-box {
+    padding: 20px; /* Reduces padding on smaller screens */
+    width: 100%;
   }
-  
 
   h2 {
-    margin-bottom: 20px;
-    /* color: #3e1846; */
-    color: white;
+    font-size: 20px; /* Adjust font size for smaller screens */
   }
-  
-  p {
-    margin-bottom: 30px;
-    /* color: #888; */
-    color: white;
+}
 
+@media (max-width: 480px) {
+  .create-account-box {
+    padding: 15px;
+    width: 100%; /* Ensures form fits on small screens */
   }
-  
-  p a {
-    color: #6c2c81;
-    color: rgb(230, 205, 205);
 
-    text-decoration: none;
-  }
-  
-  p a:hover {
-    text-decoration: underline;
-  }
-  
-  .input-group {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #555;
-  }
-  
   .input-group input,
   .input-group select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    padding: 8px; /* Slightly smaller padding for compact input fields */
   }
-  
+
   button {
-    width: 100%;
-    padding: 10px;
-    background-color: #6c2c81;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
+    padding: 8px;
   }
-  
-  button:hover {
-    background-color: #5a226b;
-  }
-  
+}
