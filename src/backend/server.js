@@ -19,6 +19,7 @@ app.use(cors({
 app.use(express.json());
 
 // Connect to MongoDB
+
 const mongoURI = "mongodb+srv://fatimatariq8:AIebicgo8wqu3sf8@cluster0.gmcfa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 mongoose.connect(mongoURI)
 .then(()=> console.log('mongo connected'))
