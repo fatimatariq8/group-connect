@@ -1,52 +1,57 @@
 import React, { useState } from "react";
 import "../styles/createaccount.css"; 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const CreateAccount = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [major, setMajor] = useState('');
-    const [batch, setBatch] = useState('');
-    const [gpa, setGPA] = useState('');
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [major, setMajor] = useState("");
+    const [batch, setBatch] = useState("");
+    const [gpa, setGPA] = useState("");
+    const [emailError, setEmailError] = useState(""); // For email validation error
     const navigate = useNavigate();
 
     const handleSignUp = async (e) => {
         e.preventDefault(); 
+
+        // Validate email format
         const emailPattern = /^[a-zA-Z0-9._%+-]+@st\.habib\.edu\.pk$/;
         if (!emailPattern.test(email)) {
-            alert("Please enter a valid Habib University email address (e.g., username@st.habib.edu.pk)");
+            setEmailError("Please enter a valid Habib University email address (e.g., username@st.habib.edu.pk)");
             return;
+        } else {
+            setEmailError(""); // Clear any previous errors
         }
+
         // Send a POST request to the backend API to create a new user
         try {
-            const response = await fetch('http://localhost:5000/api/users', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+            const response = await fetch("http://localhost:5000/api/users", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     name,
                     email,
-                    password, // Ensure your backend handles this properly
+                    password,
                     major,
                     batch,
-                    gpa
-                })
+                    gpa,
+                }),
             });
 
             const data = await response.json();
             if (response.ok) {
-                console.log('User created:', data);
+                console.log("User created:", data);
                 const userId = data.user?._id; // Assuming user ID is in data.user._id
                 // Navigate on successful login
-                navigate(`/home/${userId}`); 
-                
+                navigate(`/home/${userId}`);
             } else {
-                console.error('Error creating user:', data.error);
-                alert(data.error); // Display error to the user
+                console.error("Error creating user:", data.error);
+                setEmailError(data.error || "Failed to create an account.");
             }
         } catch (error) {
-            console.error('Error:', error);
-            alert('Failed to sign up. Please try again.');
+            console.error("Error:", error);
+            setEmailError("Something went wrong. Please try again later.");
         }
     };
 
@@ -60,47 +65,49 @@ const CreateAccount = () => {
                     {/* Name */}
                     <div className="input-group">
                         <label htmlFor="name">Name</label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            placeholder="Enter your name" 
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            required 
+                            required
                         />
                     </div>
-                    
+
                     {/* University Email */}
                     <div className="input-group">
                         <label htmlFor="email">Habib University Email</label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            placeholder="Enter your university email" 
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your university email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            required 
+                            className={emailError ? "input-error" : ""}
+                            required
                         />
+                        {emailError && <span className="error-message">{emailError}</span>}
                     </div>
 
                     {/* Password */}
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            placeholder="Enter your password" 
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            required 
+                            required
                         />
                     </div>
 
                     {/* Major */}
                     <div className="input-group">
                         <label htmlFor="major">Major</label>
-                        <select 
-                            id="major" 
+                        <select
+                            id="major"
                             value={major}
                             onChange={(e) => setMajor(e.target.value)}
                             required
@@ -114,12 +121,12 @@ const CreateAccount = () => {
                             <option value="ch">Comparative Humanities</option>
                         </select>
                     </div>
-                    
+
                     {/* Batch */}
                     <div className="input-group">
                         <label htmlFor="batch">Batch</label>
-                        <select 
-                            id="batch" 
+                        <select
+                            id="batch"
                             value={batch}
                             onChange={(e) => setBatch(e.target.value)}
                             required
@@ -137,16 +144,16 @@ const CreateAccount = () => {
                     {/* GPA */}
                     <div className="input-group">
                         <label htmlFor="gpa">GPA</label>
-                        <input 
-                            type="number" 
-                            id="gpa" 
-                            placeholder="Enter your GPA" 
+                        <input
+                            type="number"
+                            id="gpa"
+                            placeholder="Enter your GPA"
                             value={gpa}
                             onChange={(e) => setGPA(e.target.value)}
-                            min="1" 
-                            max="4" 
-                            step="0.01" 
-                            required 
+                            min="1"
+                            max="4"
+                            step="0.01"
+                            required
                         />
                     </div>
 
@@ -155,6 +162,6 @@ const CreateAccount = () => {
             </div>
         </div>
     );
-}
+};
 
 export default CreateAccount;

@@ -67,6 +67,18 @@ p {
   border: 1px solid #ccc;
 }
 
+/* Highlight input with an error */
+.input-error {
+  border: 2px solid red;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 0.875rem; /* Slightly smaller font */
+  margin-top: 4px;
+}
+
 button {
   width: 100%;
   padding: 10px;
@@ -145,3 +157,4 @@ button:hover {
     max-width: 100%;
   }
 }
+

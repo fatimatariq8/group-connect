@@ -1,8 +1,4 @@
-.profile-page {
-  display: flex; 
-  height: 100vh;
-}
-
+/* General Styles */
 body::before {
   content: '';
   position: absolute;
@@ -10,47 +6,47 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../pictures/createaccountbgpic.jpg'); 
+  background-image: url('../pictures/createaccountbgpic.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  filter: blur(12px); 
-  opacity: 0.65; 
-  z-index: -1; 
+  filter: blur(12px);
+  opacity: 0.65;
+  z-index: -1;
+}
+
+/* Profile Page Layout */
+.profile-page {
+  display: flex;
+  height: 100vh;
+  flex-direction: column; /* Default for smaller screens */
 }
 
 .profile_side {
-  width: 230px; 
-  background-color: #4B1D56; 
+  width: 100%; /* Full width on mobile */
+  background-color: #4B1D56;
 }
 
 .content {
-  flex-grow: 1; 
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px;
-  background-color: #f4f4f4;
-  background-color: rgba(255, 255, 255, 0); 
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0);
   z-index: 1;
 }
 
-
-.edit_text{
-  align-items: center;
-}
-
+/* Profile Form */
 .profile-form {
   background-color: white;
-  
   padding: 5%;
   border-radius: 8px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  
-  height: 90vh;
-  
+  max-width: 400px; /* Prevents it from stretching too much on wider screens */
+  height: auto; /* Adjust height automatically */
 }
 
 .profile-header {
@@ -79,10 +75,11 @@ body::before {
   background-color: #8b4aa9;
 }
 
+/* Profile Image */
 .profile-image img {
-  width: 200px;
-  height: 100%;
-
+  width: 100%;
+  max-width: 200px; /* Ensure it doesn’t stretch on wider screens */
+  height: auto;
 }
 
 .edit-image-button {
@@ -93,21 +90,22 @@ body::before {
   cursor: pointer;
   font-size: 11px;
   display: flex;
-  width: 41%;
+  width: auto;
   border-radius: 0%;
 }
 
-
+/* Profile Sections */
 .profile-section {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 20px;
-  justify-content: space-between;
+  justify-content: center; /* Align in center for smaller screens */
 }
 
 .profile-section .form-group {
   flex: 1;
+  min-width: 100%; /* Take full width on mobile */
 }
 
 label {
@@ -123,3 +121,27 @@ input, select {
   border: 1px solid #ccc;
 }
 
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .profile-page {
+    flex-direction: row; /* Horizontal layout for larger screens */
+  }
+
+  .profile_side {
+    width: 230px; /* Fixed width on tablets and larger */
+  }
+
+  .content {
+    padding: 50px;
+  }
+
+  .profile-section .form-group {
+    min-width: 45%; /* Allow two columns */
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-form {
+    max-width: 800px; /* Wider form for desktops */
+  }
+}
