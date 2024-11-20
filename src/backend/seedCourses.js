@@ -3,12 +3,24 @@ import mongoose from 'mongoose';
 import Course from './models/courses.js'; // Adjust path based on your folder structure
 
 const courses = [
-    { title: 'Web and Mobile Development-L1', term: 'Fall Semester 2024', code: 'CS301' },
-    { title: 'Natural Language Processing-L1', term: 'Fall Semester 2024', code: 'CS301' },
-    { title: 'Intro to Deep Learning-L2', term: 'Fall Semester 2024', code: 'CS303' },
-    { title: 'Graph Data Science-L1', term: 'Fall Semester 2024', code: 'CS224' },
-    // Add more courses here if needed
+    { title: 'Probabilistic Graphical Models', term: 'Fall Semester 2024', code: 'CS452' },
+    { title: 'Capstone (Kaavish) I', term: 'Fall Semester 2024', code: 'CS491' },
+    { title: 'Data Science', term: 'Fall Semester 2024', code: 'CS457/464' },
+    { title: 'Natural Language Processing', term: 'Fall Semester 2024', code: 'CS458/463' },
+    { title: 'Capstone Design Project - I', term: 'Fall Semester 2024', code: 'CE491' },
+    { title: 'Cryptography and Network Security', term: 'Fall Semester 2024', code: 'CE/EE442/426' },
+    { title: 'Cryptography and Network Security Lab', term: 'Fall Semester 2024', code: 'CE/EE442L/426L' },
+    { title: 'Electric Vehicles', term: 'Fall Semester 2024', code: 'EE434' },
+    { title: 'Principles of Management', term: 'Fall Semester 2024', code: 'MGMT320' },
+    { title: 'Supply Chain Management', term: 'Fall Semester 2024', code: 'MGMT323' },
+    { title: 'Probability and Statistics', term: 'Fall Semester 2024', code: 'MATH310' },
+    { title: 'Physics of Semiconductor Devices', term: 'Fall Semester 2024', code: 'PHY304' },
+    { title: 'Service-Learning: Climate Change Awareness', term: 'Fall Semester 2024', code: 'DEV328' },
+    { title: 'Political Economy of Development', term: 'Fall Semester 2024', code: 'ECON313' },
+    { title: 'Political Economy of Agriculture and Food', term: 'Fall Semester 2024', code: 'POLI313' },
+    { title: 'Comparative Urbanisms', term: 'Fall Semester 2024', code: 'POLI314' },
 ];
+
 
 const seedCourses = async () => {
     try {
