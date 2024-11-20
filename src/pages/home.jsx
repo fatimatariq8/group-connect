@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/nav';
 import Sidebar from '../components/sidebar';
 import CardGrid from '../components/cardgrid';
+import CourseAdder from '../components/CourseAdder'; // Import CourseAdder
 import '../styles/home.css';
 import { useParams } from 'react-router-dom';
-
 
 const Dashboard = () => {
   const { id } = useParams(); // Retrieve user ID from the URL
   const [user, setUser] = useState(null);
+  const [isCourseAdderVisible, setIsCourseAdderVisible] = useState(false); // State to toggle CourseAdder
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -29,14 +30,26 @@ const Dashboard = () => {
       fetchUserData(); // Fetch only if ID is present
     }
   }, [id]);
-  
+
+  // Toggle CourseAdder visibility
+  const handleAddCourseToggle = () => {
+    setIsCourseAdderVisible(!isCourseAdderVisible);
+  };
+
+  // Handle added course (from CourseAdder)
+  const handleAddCourse = (course) => {
+    console.log('Course Added:', course); // Add logic to save or display the added course
+  };
+
   return (
     <div className="dashboard">
-      {<Sidebar userId={id} />} {/* Use id directly from useParams */}
-
+      <Sidebar userId={id} /> {/* Use id directly from useParams */}
       <div className="main-content">
-        <Navbar />
-        {<CardGrid userId={id} />}
+        <Navbar onAddCourseClick={handleAddCourseToggle} /> {/* Pass toggle function */}
+        {isCourseAdderVisible && (
+          <CourseAdder onAddCourse={handleAddCourse} /> // Conditionally render CourseAdder
+        )}
+        <CardGrid userId={id} />
       </div>
     </div>
   );
