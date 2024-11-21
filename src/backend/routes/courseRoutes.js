@@ -60,10 +60,26 @@ router.post('/enroll/:userId/:courseId', async (req, res) => {
             return res.status(404).json({ message: 'User or Course not found' });
         }
 
-        // Prevent duplicate enrollment
-        if (user.courses.includes(courseId)) {
-            return res.status(400).json({ message: 'User already enrolled in this course' });
+        // // Prevent duplicate enrollment
+        // if (user.courses.includes(courseId)) {
+        //     return res.status(400).json({ message: 'User already enrolled in this course' });
+        // }
+
+        // if (user.courses.includes(courseId)) {
+        //     return res.status(400).json({
+        //       message: 'You are already enrolled in this course!',
+        //       errorCode: 'DUPLICATE_ENROLLMENT',
+        //     });
+        // }
+
+        if (user.courses.some((id) => id.toString() === courseId)) {
+            return res.status(400).json({
+                message: 'You are already enrolled in this course!',
+                errorCode: 'DUPLICATE_ENROLLMENT',
+            });
         }
+        
+
 
         user.courses.push(courseId);
         await user.save();

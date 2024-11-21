@@ -8,6 +8,8 @@ import Profile from './pages/profile'
 import Help from './pages/help'
 import CoursePage from './pages/coursepage'; // Import CoursePage here
 
+
+
 // import AboutPage from './components/AboutPage';
 // import ContactPage from './components/ContactPage';
 // import './styles/GlobalStyles.css';

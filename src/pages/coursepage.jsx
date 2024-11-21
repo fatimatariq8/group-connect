@@ -89,18 +89,35 @@ const CoursePage = () => {
     alert('Group finalized!');
   };
 
+  function formatMajor(major) {
+    return major
+      .replace(/_/g, ' ') // Replace underscores with spaces
+      .replace(/[^a-zA-Z\s]/g, '') // Remove any special characters
+      .toLowerCase() // Convert to lowercase
+      .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize each word
+  }
+  
+
   return (
     <div className="course-page">
       <Sidebar userId={id} /> {/* Pass courseId to Sidebar */}
       <div className="main-content">
         <div className="course-content">
-          <h2>Course Project</h2>
+          {/* <h2>Course Project</h2> */}
           {loading ? (
             <p>Loading students...</p>
           ) : (
             <>
-              <h3>Available Students:</h3>
-              <div className="student-list">
+              {/* <h3>Available Students:</h3> */}
+              <div class="d-flex align-items-center mt-4 mb-3">
+                <h3 class="text-primary fw-bold me-3">Available Students</h3>
+                <hr 
+                    className="flex-grow-1 border-primary" 
+                    style={{ opacity: 0.7, height: '2px' }} 
+                />
+
+              </div>
+                {/* <div className="student-list">
                 {availableStudents.length > 0 ? (
                   availableStudents.map((student) => (
                     <div key={student._id} className="student-detail">
@@ -112,7 +129,67 @@ const CoursePage = () => {
                 ) : (
                   <p>No available students.</p>
                 )}
-              </div>
+              </div> */}
+              <div className="student-list">
+  {availableStudents.length > 0 ? (
+    <div className="list-group">
+      {availableStudents.map((student) => (
+        <div
+          key={student._id}
+          className="list-group-item d-flex align-items-center justify-content-between"
+          style={{
+            borderRadius: '8px',
+            marginBottom: '10px',
+            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+            backgroundColor: '#f8f9fa', // Optional soft background
+          }}
+        >
+          {/* Student Details */}
+          <div className="d-flex align-items-center">
+            <img
+              src="https://via.placeholder.com/40"
+              alt="Student Avatar"
+              className="rounded-circle me-3"
+              style={{ width: '40px', height: '40px' }}
+            />
+            <div>
+              <h6 className="fw-bolder">{student.name}</h6>
+              <small className="fw-normal">Batch: {student.batch}</small>
+              <br />
+              <small className="fw-normal"> Major: {formatMajor(student.major)}</small>
+              <br />
+              <small className="fw-normal">GPA: {student.gpa}</small>
+            </div>
+          </div>
+          {/* Add Button */}
+          <button
+              className="btn btn-primary btn-sm rounded-circle"
+              onClick={() => addToGroup(student)}
+              style={{
+                width: '32px',
+                height: '32px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'purple',
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: '18px',
+                border: 'none'
+              }}
+              aria-label="Add to Group"
+            >
+              +
+          </button>
+
+        </div>
+      ))}
+    </div>
+  ) : (
+    <div className="alert alert-warning">No available students.</div>
+  )}
+</div>
+
 
               <h3>Unavailable Students:</h3>
               <div className="student-list">
