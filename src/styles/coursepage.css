@@ -18,14 +18,88 @@
     border-radius: 5px;
     overflow: hidden;
     background-color: #f9f9f9;
-  }
-  
-  .student-list .student-detail {
-    border-bottom: 1px solid #ddd;
     padding: 10px;
   }
+  
+
   
   h2 {
     color: #333;
   }
   
+  .course-content {
+    padding: 20px;
+  }
+  
+  .course-content h3 {
+    margin-top: 20px;
+  }
+  
+  
+  .student-detail {
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+  }
+  
+  .student-detail .student-avatar img {
+    margin-right: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .student-detail .student-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .student-name {
+    font-weight: bold;
+  }
+  
+  .student-section,
+  .student-role {
+    font-size: 14px;
+    color: #555;
+  }
+
+#tex11 {
+  color: black;
+}
+  
+
+
+
+
+.student-detail button:hover {
+  background-color: purple;
+}
+
+
+
+
+.group-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.group-actions button {
+  background-color: #3e1846;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 5px;
+}
+
+.group-actions button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

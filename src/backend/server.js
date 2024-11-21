@@ -5,6 +5,7 @@ import userRoutes from './routes/userRoutes.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import courseRoutes from './routes/courseRoutes.js';
+import groupRoutes from './routes/groupRoutes.js';
 
 const app = express();
 const PORT = 5000;
@@ -28,6 +29,7 @@ mongoose.connect(mongoURI)
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/courses', courseRoutes);
+app.use('/api/groups', groupRoutes);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

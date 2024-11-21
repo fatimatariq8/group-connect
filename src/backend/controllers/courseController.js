@@ -1,7 +1,7 @@
-// controllers/course.controller.js
 import Course from '../models/courses.js';
+import User from '../models/user.js';
 
-// Get all courses (with optional pagination)
+
 export const getAllCourses = async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
 
@@ -77,3 +77,66 @@ export const deleteCourseById = async (req, res) => {
         res.status(500).json({ message: 'Failed to delete course', error: error.message });
     }
 };
+
+
+export const enrollCourse = async (req, res) => {
+  const { userId, courseId } = req.params;
+
+  try {
+    // Find the user and course
+    const user = await User.findById(userId);
+    const course = await Course.findById(courseId);
+
+    if (!user || !course) {
+      return res.status(404).json({ message: 'User or course not found' });
+    }
+
+    // Check if the course is already enrolled
+    if (user.courses.includes(courseId)) {
+      return res.status(400).json({ message: 'Course already enrolled' });
+    }
+
+    // Add the course to the user's courses
+    user.courses.push(courseId);
+    await user.save();
+
+    // Add the user to the course's students
+    course.students.push(userId);
+    await course.save();
+
+    res.status(200).json({ message: 'Course enrolled successfully', user, course });
+  } catch (error) {
+    res.status(500).json({ message: 'Error enrolling course', error });
+  }
+};
+
+export const unenrollCourse = async (req, res) => {
+    const { userId, courseId } = req.params;
+  
+    try {
+      // Find the user and course
+      const user = await User.findById(userId);
+      const course = await Course.findById(courseId);
+  
+      if (!user || !course) {
+        return res.status(404).json({ message: 'User or course not found' });
+      }
+  
+      // Check if the course is enrolled by the user
+      if (!user.courses.includes(courseId)) {
+        return res.status(400).json({ message: 'Course not enrolled by the user' });
+      }
+  
+      // Remove the course from the user's courses
+      user.courses = user.courses.filter((id) => id.toString() !== courseId);
+      await user.save();
+  
+      // Remove the user from the course's students
+      course.students = course.students.filter((id) => id.toString() !== userId);
+      await course.save();
+  
+      res.status(200).json({ message: 'Course unenrolled successfully', user, course });
+    } catch (error) {
+      res.status(500).json({ message: 'Error unenrolling course', error });
+    }
+  };

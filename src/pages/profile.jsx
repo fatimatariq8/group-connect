@@ -16,7 +16,7 @@ const Profile = () => {
   const [selectedFile, setSelectedFile] = useState(null); // File selected by user
 
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id , courseid} = useParams();
 
   useEffect(() => {
     // Fetch user profile data when the component loads

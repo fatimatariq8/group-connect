@@ -4,7 +4,7 @@ import Sidebar from '../components/sidebar';
 import { useParams } from 'react-router-dom';
 
 const Help = () => {
-  const { id } = useParams(); // Retrieve the user ID from the URL
+  const { id, courseid } = useParams(); // Retrieve the user ID from the URL
 
   return (
     <div className="help-page">

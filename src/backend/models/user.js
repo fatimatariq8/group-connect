@@ -29,7 +29,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: '', // Optional: set a default path if needed
     },
+    courses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Course' }],
+    isAvailable: { type: Boolean, default: true }
 });
+
+
 
 // // Pre-save middleware to hash the password before saving
 // userSchema.pre('save', async function (next) {

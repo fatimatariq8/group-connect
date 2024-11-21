@@ -2,22 +2,19 @@ import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const courses = [
-  { id: 'web-mobile-dev', title: 'Web and Mobile Development-L1', color: 'green', label: 'Term: Fall Semester 2024' },
-  { id: 'nlp', title: 'Natural Language Processing-L1', color: 'red', label: 'Term: Fall Semester 2024' },
-  { id: 'deep-learning', title: 'Intro to Deep Learning-L2', color: 'darkblue', label: 'Term: Fall Semester 2024' },
-  { id: 'graph-data-science', title: 'Graph Data Science-L1', color: 'purple', label: 'Term: Fall Semester 2024' },
-];
+const CardGrid = ({ userId, courses }) => {
+  if (!courses || courses.length === 0) {
+    return <p>No enrolled courses yet. Add some!</p>;
+  }
 
-const CardGrid = ({ userId }) => {
   return (
     <div className="card-grid">
       {courses.map((course) => (
-        <Link key={course.id} to={`/coursepage/${userId}`}>
-          <Card style={{ backgroundColor: course.color, color: 'white', marginBottom: '20px' }}>
+        <Link key={course._id} to={`/coursepage/${userId}/${course._id}`}>
+          <Card style={{ backgroundColor: 'purple', color: 'white', marginBottom: '20px' }}>
             <CardContent className="text">
               <Typography className="text_title" variant="h5">{course.title}</Typography>
-              <Typography variant="body2">{course.label}</Typography>
+              <Typography variant="body2">{course.term}</Typography>
             </CardContent>
           </Card>
         </Link>
