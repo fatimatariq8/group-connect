@@ -1,105 +1,44 @@
 .course-page {
-    display: flex;
-  }
-  
-  .main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .course-content {
-    padding: 20px;
-  }
-  
-  .student-list {
-    margin-top: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #f9f9f9;
-    padding: 10px;
-  }
-  
-
-  
-  h2 {
-    color: #333;
-  }
-  
-  .course-content {
-    padding: 20px;
-  }
-  
-  .course-content h3 {
-    margin-top: 20px;
-  }
-  
-  
-  .student-detail {
-    border: 1px solid #ccc;
-
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    display: flex;
-    align-items: center;
-  }
-  
-  .student-detail .student-avatar img {
-    margin-right: 10px;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-  }
-  
-  .student-detail .student-info {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .student-name {
-    font-weight: bold;
-  }
-  
-  .student-section,
-  .student-role {
-    font-size: 14px;
-    color: #555;
-  }
-
-#tex11 {
-  color: black;
-}
-  
-
-
-
-
-.student-detail button:hover {
-  background-color: purple;
-}
-
-
-
-
-.group-actions {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  min-height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent overflow on the outer container */
+  background-color: #f5f5f5; /* Optional light background */
 }
 
-.group-actions button {
-  background-color: #3e1846;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+.sidebar {
+  flex: 0 0 250px; /* Fixed width for the sidebar */
+  height: 100vh; /* Ensure sidebar fills the full height */
+  overflow-y: auto; /* Allow scrolling if the sidebar content is long */
+  background-color: #4B1D56;
+}
+
+.main-content {
   flex: 1;
-  margin: 0 5px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 20px;
+  height: 100vh; /* Ensure it fills the full height */
 }
 
-.group-actions button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+.course-content {
+  max-width: 1200px;
+  margin: 0 auto; /* Center the content horizontally */
+}
+
+.student-list {
+  max-height: 500px; /* Optional: Limit the height of student lists */
+  overflow-y: auto; /* Enable scrolling inside the list */
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .course-content {
+    max-width: 100%; /* Allow full width on smaller screens */
+  }
+
+  .btn {
+    font-size: 0.9rem; /* Adjust button size for smaller screens */
+  }
 }
