@@ -132,10 +132,15 @@ const Profile = () => {
                 Change Image
               </button>
             </div>
-            <div className="profile-actions">
-              <button type="submit" className="save-button">Save</button>
-              <button type="button" className="delete-button" onClick={handleDelete}>Delete Account</button>
-            </div>
+            <div className="profile-actions d-flex justify-content-between mt-4">
+  <button type="submit" className="btn btn-success btn-lg w-50 me-3">
+    Save 
+  </button>
+  <button type="button" className="btn btn-danger btn-lg w-50" onClick={handleDelete}>
+    Delete
+  </button>
+</div>
+
           </div>
           
           <div className="profile-section">
